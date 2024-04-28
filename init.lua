@@ -45,6 +45,16 @@ require('packer').startup(function()
     end,
   }
   use {
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+        {"nvim-lua/plenary.nvim"},
+        {"nvim-treesitter/nvim-treesitter"}
+    },
+    config = function ()
+      require('refactoring').setup()
+    end,
+  }
+  use {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.6',
     requires = { { 'nvim-lua/plenary.nvim' } },
@@ -57,6 +67,12 @@ require('packer').startup(function()
   use {
     'lewis6991/gitsigns.nvim',
     config = function() require('gitsigns').setup() end,
+  }
+  use {
+    'echasnovski/mini.tabline',
+    config = function ()
+      require('mini.tabline').setup({ show_icons = true, set_vim_settings = true })
+    end
   }
   use {
     'goolord/alpha-nvim',
@@ -100,6 +116,12 @@ require('packer').startup(function()
         auto_restore_enabled = true,
       }
     end,
+  }
+  use {
+    'echasnovski/mini.pairs',
+    config = function ()
+      require('mini.pairs').setup()
+    end
   }
   use {
     "williamboman/mason.nvim",
@@ -188,7 +210,6 @@ vim.opt.scrolloff = 5
 vim.opt.backspace = { "indent", "eol", "start" }
 
 -- Keybinds
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.api.nvim_set_keymap('n', '<leader>fs', ':Telescope grep_string<CR>', { noremap = true, desc = '[f]ind [s]tring' })
@@ -200,6 +221,10 @@ vim.api.nvim_set_keymap('n', '<leader>Gh', ':Gitsigns toggle_current_line_blame<
   { noremap = true, desc = '[G]it [h]istory' })
 vim.api.nvim_set_keymap('n', '<leader>tt', ':sp term://bash<CR>', { noremap = true, desc = '[tt]erminal' })
 vim.api.nvim_set_keymap('n', '<leader>sk', ":Telescope keymaps<CR>", { noremap = true, desc = '[s]earch [k]eymaps' })
+vim.api.nvim_set_keymap('n', '<leader><TAB>', ":Telescope buffers<CR>", { noremap = true, desc = 'show open buffers' })
+vim.keymap.set('x', '<leader>es', ':Refactor extract<CR>', { noremap = true, desc = '[e]xtract [s]cope' })
+vim.keymap.set('x', '<leader>ev', ':Refactor extract_var<CR>', { noremap = true, desc = '[e]xtract [v]ariable' })
+vim.keymap.set({ 'n', 'x' }, '<leader>iv', ':Refactor inline_var<CR>', { noremap = true, desc = '[i]line [v]ariable' })
 
 -- Set color scheme
 vim.cmd [[colorscheme adwaita]]
