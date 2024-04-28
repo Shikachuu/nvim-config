@@ -1,11 +1,25 @@
--- Configure packer
-require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
-  use 'Mofiqul/adwaita.nvim'
-  use {
+-- Install lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- Add dependencies
+require('lazy').setup({
+  'wbthomason/packer.nvim',
+  'Mofiqul/adwaita.nvim',
+  {
     'nvim-treesitter/nvim-treesitter',
     tag = 'v0.9.2',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    build = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup {
         build = ':TSUpdate',
@@ -43,40 +57,40 @@ require('packer').startup(function()
         }
       }
     end,
-  }
-  use {
+  },
+  {
     "ThePrimeagen/refactoring.nvim",
-    requires = {
+    dependencies = {
         {"nvim-lua/plenary.nvim"},
         {"nvim-treesitter/nvim-treesitter"}
     },
     config = function ()
       require('refactoring').setup()
     end,
-  }
-  use {
+  },
+  {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.6',
-    requires = { { 'nvim-lua/plenary.nvim' } },
-  }
-  use {
+    dependencies = { { 'nvim-lua/plenary.nvim' } },
+  },
+  {
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    dependencies = { 'kyazdani42/nvim-web-devicons', opt = true },
     config = function() require('lualine').setup() end,
-  }
-  use {
+  },
+  {
     'lewis6991/gitsigns.nvim',
     config = function() require('gitsigns').setup() end,
-  }
-  use {
+  },
+  {
     'echasnovski/mini.tabline',
     config = function ()
       require('mini.tabline').setup({ show_icons = true, set_vim_settings = true })
     end
-  }
-  use {
+  },
+  {
     'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    dependencies = { 'kyazdani42/nvim-web-devicons' },
     config = function()
       local dashboard = require('alpha.themes.dashboard')
 
@@ -104,8 +118,8 @@ require('packer').startup(function()
       dashboard.section.footer.val = { meme() }
       require('alpha').setup(dashboard.opts)
     end,
-  }
-  use {
+  },
+  {
     'rmagatti/auto-session',
     config = function()
       require("auto-session").setup {
@@ -116,19 +130,20 @@ require('packer').startup(function()
         auto_restore_enabled = true,
       }
     end,
-  }
-  use {
+  },
+  {
     'echasnovski/mini.pairs',
     config = function ()
       require('mini.pairs').setup()
     end
-  }
-  use {
+  },
+  {
     "williamboman/mason.nvim",
     config = function() require('mason').setup() end,
-  }
-  use {
+  },
+  {
     "williamboman/mason-lspconfig.nvim",
+    lazy = true,
     config = function()
       local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -144,16 +159,16 @@ require('packer').startup(function()
       })
     end,
 
-  }
-  use "neovim/nvim-lspconfig"
-  use "hrsh7th/cmp-nvim-lsp"
-  use {
+  },
+  "neovim/nvim-lspconfig",
+  "hrsh7th/cmp-nvim-lsp",
+  {
     "L3MON4D3/LuaSnip",
-    tag = "v2.*",
-  }
-  use {
+    version = "v2.*",
+  },
+  {
     "hrsh7th/nvim-cmp",
-    requires = { "neovim/nvim-lspconfig" },
+    dependencies = { "neovim/nvim-lspconfig" },
     config = function()
       local cmp = require('cmp')
 
@@ -174,8 +189,8 @@ require('packer').startup(function()
         }),
       })
     end,
-  }
-end)
+  },
+})
 
 -- Set charsets
 vim.opt.encoding = "utf-8"
