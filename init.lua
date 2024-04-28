@@ -175,7 +175,6 @@ require('packer').startup(function()
       })
     end,
   }
-  use "github/copilot.vim"
 end)
 
 -- Set charsets
@@ -225,6 +224,10 @@ vim.api.nvim_set_keymap('n', '<leader><TAB>', ":Telescope buffers<CR>", { norema
 vim.keymap.set('x', '<leader>es', ':Refactor extract<CR>', { noremap = true, desc = '[e]xtract [s]cope' })
 vim.keymap.set('x', '<leader>ev', ':Refactor extract_var<CR>', { noremap = true, desc = '[e]xtract [v]ariable' })
 vim.keymap.set({ 'n', 'x' }, '<leader>iv', ':Refactor inline_var<CR>', { noremap = true, desc = '[i]line [v]ariable' })
+vim.keymap.set('n', '<C-S-Up>', ':m -2<CR>', { noremap = true, desc = 'move line up', silent = true })
+vim.keymap.set('n', '<C-S-Down>', ':m +1<CR>', { noremap = true, desc = 'move line down', silent = true })
+vim.keymap.set('n', '<leader>spv', ':vsplit<CR>', { noremap = true, desc = '[s][p]lit [v]ertical', silent = true })
+vim.keymap.set('n', '<leader>sph', ':split<CR>', { noremap = true, desc = '[s][p]lit [h]orizontal', silent = true })
 
 -- Set color scheme
 vim.cmd [[colorscheme adwaita]]
