@@ -91,7 +91,7 @@ _G.packer_plugins = {
     url = "https://github.com/goolord/alpha-nvim"
   },
   ["auto-session"] = {
-    config = { "\27LJ\2\n­\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\5\25auto_session_enabled\2\14log_level\nerror\25auto_restore_enabled\2\22auto_save_enabled\2 auto_session_create_enabled\2\nsetup\17auto-session\frequire\0" },
+    config = { "\27LJ\2\n­\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\5\25auto_restore_enabled\2\22auto_save_enabled\2 auto_session_create_enabled\2\25auto_session_enabled\2\14log_level\nerror\nsetup\17auto-session\frequire\0" },
     loaded = true,
     path = "/home/shika/.local/share/nvim/site/pack/packer/start/auto-session",
     url = "https://github.com/rmagatti/auto-session"
@@ -119,7 +119,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["mason-lspconfig.nvim"] = {
-    config = { "\27LJ\2\ng\0\1\5\1\5\0\n6\1\0\0'\3\1\0B\1\2\0028\1\0\0019\1\2\0015\3\3\0-\4\0\0=\4\4\3B\1\2\1K\0\1\0\0À\17capabilities\1\0\1\17capabilities\0\nsetup\14lspconfig\frequireÞ\1\1\0\6\0\n\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0023\1\3\0006\2\0\0'\4\4\0B\2\2\0029\2\5\0025\4\a\0005\5\6\0=\5\b\0044\5\3\0>\1\1\5=\5\t\4B\2\2\0012\0\0€K\0\1\0\rhandlers\21ensure_installed\1\0\2\21ensure_installed\0\rhandlers\0\1\3\0\0\ngopls\vlua_ls\nsetup\20mason-lspconfig\0\25default_capabilities\17cmp_nvim_lsp\frequire\0" },
+    config = { "\27LJ\2\ng\0\1\5\1\5\0\n6\1\0\0'\3\1\0B\1\2\0028\1\0\0019\1\2\0015\3\3\0-\4\0\0=\4\4\3B\1\2\1K\0\1\0\0À\17capabilities\1\0\1\17capabilities\0\nsetup\14lspconfig\frequireÞ\1\1\0\6\0\n\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0023\1\3\0006\2\0\0'\4\4\0B\2\2\0029\2\5\0025\4\a\0005\5\6\0=\5\b\0044\5\3\0>\1\1\5=\5\t\4B\2\2\0012\0\0€K\0\1\0\rhandlers\21ensure_installed\1\0\2\rhandlers\0\21ensure_installed\0\1\3\0\0\ngopls\vlua_ls\nsetup\20mason-lspconfig\0\25default_capabilities\17cmp_nvim_lsp\frequire\0" },
     loaded = true,
     path = "/home/shika/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
@@ -131,7 +131,7 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["nvim-cmp"] = {
-    config = { "\27LJ\2\nC\0\1\4\0\4\0\a6\1\0\0'\3\1\0B\1\2\0029\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\15lsp_expand\fluasnip\frequire¸\2\1\0\n\0\19\0\0306\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\6\0005\4\4\0003\5\3\0=\5\5\4=\4\a\0034\4\3\0005\5\b\0>\5\1\4=\4\t\0039\4\n\0009\4\v\0049\4\f\0045\6\15\0009\a\n\0009\a\r\a5\t\14\0B\a\2\2=\a\16\0069\a\n\0009\a\17\aB\a\1\2=\a\18\6B\4\2\2=\4\n\3B\1\2\1K\0\1\0\14<C-Space>\rcomplete\t<CR>\1\0\2\14<C-Space>\0\t<CR>\0\1\0\1\vselect\1\fconfirm\vinsert\vpreset\fmapping\fsources\1\0\1\tname\rnvim_lsp\fsnippet\1\0\3\fsnippet\0\fmapping\0\fsources\0\vexpand\1\0\1\vexpand\0\0\nsetup\bcmp\frequire\0" },
+    config = { "\27LJ\2\nC\0\1\4\0\4\0\a6\1\0\0'\3\1\0B\1\2\0029\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\15lsp_expand\fluasnip\frequire¸\2\1\0\n\0\19\0\0306\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\6\0005\4\4\0003\5\3\0=\5\5\4=\4\a\0034\4\3\0005\5\b\0>\5\1\4=\4\t\0039\4\n\0009\4\v\0049\4\f\0045\6\15\0009\a\n\0009\a\r\a5\t\14\0B\a\2\2=\a\16\0069\a\n\0009\a\17\aB\a\1\2=\a\18\6B\4\2\2=\4\n\3B\1\2\1K\0\1\0\14<C-Space>\rcomplete\t<CR>\1\0\2\t<CR>\0\14<C-Space>\0\1\0\1\vselect\1\fconfirm\vinsert\vpreset\fmapping\fsources\1\0\1\tname\rnvim_lsp\fsnippet\1\0\3\fsnippet\0\fmapping\0\fsources\0\vexpand\1\0\1\vexpand\0\0\nsetup\bcmp\frequire\0" },
     loaded = true,
     path = "/home/shika/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
@@ -142,7 +142,7 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\n±\2\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14highlight\1\0\1\venable\2\21ensure_installed\1\16\0\0\rmarkdown\bvim\vvimdoc\tbash\blua\ago\ngomod\ngosum\nproto\15dockerfile\15javascript\15typescript\thtml\tjson\tyaml\1\0\5\nbuild\14:TSUpdate\14highlight\0\17auto_install\2\17sync_install\2\21ensure_installed\0\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\nè\3\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0005\4\t\0=\4\n\3=\3\v\2B\0\2\1K\0\1\0\26incremental_selection\fkeymaps\1\0\4\22scope_incremental\n<TAB>\21node_incremental\t<CR>\21node_decremental\f<S-TAB>\19init_selection\t<CR>\1\0\2\venable\2\fkeymaps\0\14highlight\1\0\1\venable\2\21ensure_installed\1\16\0\0\rmarkdown\bvim\vvimdoc\tbash\blua\ago\ngomod\ngosum\nproto\15dockerfile\15javascript\15typescript\thtml\tjson\tyaml\1\0\6\17sync_install\2\14highlight\0\26incremental_selection\0\21ensure_installed\0\nbuild\14:TSUpdate\17auto_install\2\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "/home/shika/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -171,14 +171,26 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: alpha-nvim
+time([[Config for alpha-nvim]], true)
+try_loadstring("\27LJ\2\ny\0\0\4\0\3\0\a5\0\0\0006\1\1\0009\1\2\1\21\3\0\0B\1\2\0028\1\1\0L\1\2\0\vrandom\tmath\1\v\0\0\nbÃ³br\rpoczekaj\fratatuj\fpingwin\npanda\nhomik\vjeÅ¼ek\vskunks\nuÅ¾ik\vjeleÅ„Š\5\1\0\t\0\26\00226\0\0\0'\2\1\0B\0\2\0026\1\2\0009\1\3\0016\3\4\0009\3\5\3B\3\1\0A\1\0\0013\1\6\0009\2\a\0009\2\b\0025\3\n\0=\3\t\0029\2\a\0009\2\v\0024\3\4\0009\4\f\0'\6\r\0'\a\14\0'\b\15\0B\4\4\2>\4\1\0039\4\f\0'\6\16\0'\a\17\0'\b\18\0B\4\4\2>\4\2\0039\4\f\0'\6\19\0'\a\20\0'\b\21\0B\4\4\0?\4\0\0=\3\t\0029\2\a\0009\2\22\0024\3\3\0\18\4\1\0B\4\1\0?\4\1\0=\3\t\0026\2\0\0'\4\23\0B\2\2\0029\2\24\0029\4\25\0B\2\2\1K\0\1\0\topts\nsetup\nalpha\vfooter\f:qa<CR>\tquit\6q\28:Telescope oldfiles<CR>\vrecent\6r\18<cmd>ene <CR>\bnew\6n\vbutton\fbuttons\1\b\0\0'                      _           '                     (_)          ' _ __   ___    __   ___ _ __ ___  '| '_ \\ / _ \\   \\ \\ / / | '_ ` _ \\ '| | | | (_) |   \\ V /| | | | | | |'|_| |_|\\___( )   \\_/ |_|_| |_| |_|'           |/                     \bval\vheader\fsection\0\ttime\aos\15randomseed\tmath\27alpha.themes.dashboard\frequire\a€€À™\4\3€€À™\4\0", "config", "alpha-nvim")
+time([[Config for alpha-nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\flualine\frequire\0", "config", "lualine.nvim")
+time([[Config for lualine.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
-try_loadstring("\27LJ\2\nC\0\1\4\0\4\0\a6\1\0\0'\3\1\0B\1\2\0029\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\15lsp_expand\fluasnip\frequire¸\2\1\0\n\0\19\0\0306\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\6\0005\4\4\0003\5\3\0=\5\5\4=\4\a\0034\4\3\0005\5\b\0>\5\1\4=\4\t\0039\4\n\0009\4\v\0049\4\f\0045\6\15\0009\a\n\0009\a\r\a5\t\14\0B\a\2\2=\a\16\0069\a\n\0009\a\17\aB\a\1\2=\a\18\6B\4\2\2=\4\n\3B\1\2\1K\0\1\0\14<C-Space>\rcomplete\t<CR>\1\0\2\14<C-Space>\0\t<CR>\0\1\0\1\vselect\1\fconfirm\vinsert\vpreset\fmapping\fsources\1\0\1\tname\rnvim_lsp\fsnippet\1\0\3\fsnippet\0\fmapping\0\fsources\0\vexpand\1\0\1\vexpand\0\0\nsetup\bcmp\frequire\0", "config", "nvim-cmp")
+try_loadstring("\27LJ\2\nC\0\1\4\0\4\0\a6\1\0\0'\3\1\0B\1\2\0029\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\15lsp_expand\fluasnip\frequire¸\2\1\0\n\0\19\0\0306\0\0\0'\2\1\0B\0\2\0029\1\2\0005\3\6\0005\4\4\0003\5\3\0=\5\5\4=\4\a\0034\4\3\0005\5\b\0>\5\1\4=\4\t\0039\4\n\0009\4\v\0049\4\f\0045\6\15\0009\a\n\0009\a\r\a5\t\14\0B\a\2\2=\a\16\0069\a\n\0009\a\17\aB\a\1\2=\a\18\6B\4\2\2=\4\n\3B\1\2\1K\0\1\0\14<C-Space>\rcomplete\t<CR>\1\0\2\t<CR>\0\14<C-Space>\0\1\0\1\vselect\1\fconfirm\vinsert\vpreset\fmapping\fsources\1\0\1\tname\rnvim_lsp\fsnippet\1\0\3\fsnippet\0\fmapping\0\fsources\0\vexpand\1\0\1\vexpand\0\0\nsetup\bcmp\frequire\0", "config", "nvim-cmp")
 time([[Config for nvim-cmp]], false)
 -- Config for: auto-session
 time([[Config for auto-session]], true)
-try_loadstring("\27LJ\2\n­\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\5\25auto_session_enabled\2\14log_level\nerror\25auto_restore_enabled\2\22auto_save_enabled\2 auto_session_create_enabled\2\nsetup\17auto-session\frequire\0", "config", "auto-session")
+try_loadstring("\27LJ\2\n­\1\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\5\25auto_restore_enabled\2\22auto_save_enabled\2 auto_session_create_enabled\2\25auto_session_enabled\2\14log_level\nerror\nsetup\17auto-session\frequire\0", "config", "auto-session")
 time([[Config for auto-session]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\nè\3\0\0\5\0\f\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\0025\3\b\0005\4\t\0=\4\n\3=\3\v\2B\0\2\1K\0\1\0\26incremental_selection\fkeymaps\1\0\4\22scope_incremental\n<TAB>\21node_incremental\t<CR>\21node_decremental\f<S-TAB>\19init_selection\t<CR>\1\0\2\venable\2\fkeymaps\0\14highlight\1\0\1\venable\2\21ensure_installed\1\16\0\0\rmarkdown\bvim\vvimdoc\tbash\blua\ago\ngomod\ngosum\nproto\15dockerfile\15javascript\15typescript\thtml\tjson\tyaml\1\0\6\17sync_install\2\14highlight\0\26incremental_selection\0\21ensure_installed\0\nbuild\14:TSUpdate\17auto_install\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
@@ -187,21 +199,9 @@ time([[Config for gitsigns.nvim]], false)
 time([[Config for mason.nvim]], true)
 try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nmason\frequire\0", "config", "mason.nvim")
 time([[Config for mason.nvim]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\flualine\frequire\0", "config", "lualine.nvim")
-time([[Config for lualine.nvim]], false)
--- Config for: alpha-nvim
-time([[Config for alpha-nvim]], true)
-try_loadstring("\27LJ\2\ny\0\0\4\0\3\0\a5\0\0\0006\1\1\0009\1\2\1\21\3\0\0B\1\2\0028\1\1\0L\1\2\0\vrandom\tmath\1\v\0\0\nbÃ³br\rpoczekaj\fratatuj\fpingwin\npanda\nhomik\vjeÅ¼ek\vskunks\nuÅ¾ik\vjeleÅ„Š\5\1\0\t\0\26\00226\0\0\0'\2\1\0B\0\2\0026\1\2\0009\1\3\0016\3\4\0009\3\5\3B\3\1\0A\1\0\0013\1\6\0009\2\a\0009\2\b\0025\3\n\0=\3\t\0029\2\a\0009\2\v\0024\3\4\0009\4\f\0'\6\r\0'\a\14\0'\b\15\0B\4\4\2>\4\1\0039\4\f\0'\6\16\0'\a\17\0'\b\18\0B\4\4\2>\4\2\0039\4\f\0'\6\19\0'\a\20\0'\b\21\0B\4\4\0?\4\0\0=\3\t\0029\2\a\0009\2\22\0024\3\3\0\18\4\1\0B\4\1\0?\4\1\0=\3\t\0026\2\0\0'\4\23\0B\2\2\0029\2\24\0029\4\25\0B\2\2\1K\0\1\0\topts\nsetup\nalpha\vfooter\f:qa<CR>\tquit\6q\28:Telescope oldfiles<CR>\vrecent\6r\18<cmd>ene <CR>\bnew\6n\vbutton\fbuttons\1\b\0\0'                      _           '                     (_)          ' _ __   ___    __   ___ _ __ ___  '| '_ \\ / _ \\   \\ \\ / / | '_ ` _ \\ '| | | | (_) |   \\ V /| | | | | | |'|_| |_|\\___( )   \\_/ |_|_| |_| |_|'           |/                     \bval\vheader\fsection\0\ttime\aos\15randomseed\tmath\27alpha.themes.dashboard\frequire\a€€À™\4\3€€À™\4\0", "config", "alpha-nvim")
-time([[Config for alpha-nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n±\2\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14highlight\1\0\1\venable\2\21ensure_installed\1\16\0\0\rmarkdown\bvim\vvimdoc\tbash\blua\ago\ngomod\ngosum\nproto\15dockerfile\15javascript\15typescript\thtml\tjson\tyaml\1\0\5\nbuild\14:TSUpdate\14highlight\0\17auto_install\2\17sync_install\2\21ensure_installed\0\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
 -- Config for: mason-lspconfig.nvim
 time([[Config for mason-lspconfig.nvim]], true)
-try_loadstring("\27LJ\2\ng\0\1\5\1\5\0\n6\1\0\0'\3\1\0B\1\2\0028\1\0\0019\1\2\0015\3\3\0-\4\0\0=\4\4\3B\1\2\1K\0\1\0\0À\17capabilities\1\0\1\17capabilities\0\nsetup\14lspconfig\frequireÞ\1\1\0\6\0\n\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0023\1\3\0006\2\0\0'\4\4\0B\2\2\0029\2\5\0025\4\a\0005\5\6\0=\5\b\0044\5\3\0>\1\1\5=\5\t\4B\2\2\0012\0\0€K\0\1\0\rhandlers\21ensure_installed\1\0\2\21ensure_installed\0\rhandlers\0\1\3\0\0\ngopls\vlua_ls\nsetup\20mason-lspconfig\0\25default_capabilities\17cmp_nvim_lsp\frequire\0", "config", "mason-lspconfig.nvim")
+try_loadstring("\27LJ\2\ng\0\1\5\1\5\0\n6\1\0\0'\3\1\0B\1\2\0028\1\0\0019\1\2\0015\3\3\0-\4\0\0=\4\4\3B\1\2\1K\0\1\0\0À\17capabilities\1\0\1\17capabilities\0\nsetup\14lspconfig\frequireÞ\1\1\0\6\0\n\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0023\1\3\0006\2\0\0'\4\4\0B\2\2\0029\2\5\0025\4\a\0005\5\6\0=\5\b\0044\5\3\0>\1\1\5=\5\t\4B\2\2\0012\0\0€K\0\1\0\rhandlers\21ensure_installed\1\0\2\rhandlers\0\21ensure_installed\0\1\3\0\0\ngopls\vlua_ls\nsetup\20mason-lspconfig\0\25default_capabilities\17cmp_nvim_lsp\frequire\0", "config", "mason-lspconfig.nvim")
 time([[Config for mason-lspconfig.nvim]], false)
 
 _G._packer.inside_compile = false
