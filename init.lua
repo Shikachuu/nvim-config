@@ -85,6 +85,10 @@ require('packer').startup(function()
     config = function()
       require("auto-session").setup {
         log_level = "error",
+        auto_session_enabled = true,
+        auto_session_create_enabled = true,
+        auto_save_enabled = true,
+        auto_restore_enabled = true,
       }
     end,
   }
@@ -108,7 +112,7 @@ require('packer').startup(function()
         handlers = { default_setup }
       })
     end,
-    
+
   }
   use "neovim/nvim-lspconfig"
   use "hrsh7th/cmp-nvim-lsp"
@@ -133,16 +137,15 @@ require('packer').startup(function()
         },
         mapping = cmp.mapping.preset.insert({
           -- Enter key confirms completion item
-          ['<CR>'] = cmp.mapping.confirm({select = false}),
+          ['<CR>'] = cmp.mapping.confirm({ select = false }),
           -- Ctrl + space triggers completion menu
           ['<C-Space>'] = cmp.mapping.complete(),
         }),
       })
     end,
   }
+  use "github/copilot.vim"
 end)
-
--- TreeSitter config
 
 -- Set charsets
 vim.opt.encoding = "utf-8"
@@ -176,9 +179,11 @@ vim.opt.scrolloff = 5
 vim.opt.backspace = { "indent", "eol", "start" }
 
 -- Keybinds
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true, desc = '[f]ind [f]files' })
+vim.api.nvim_set_keymap('n', '<leader>fs', ':Telescope grep_string<CR>', { noremap = true, desc = '[f]ind [s]tring' })
+vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true, desc = '[f]ind [f]iles' })
 vim.api.nvim_set_keymap('n', '<leader>Gc', ':Telescope git_commits<CR>', { noremap = true, desc = '[G]it [c]ommits' })
 vim.api.nvim_set_keymap('n', '<leader>Gb', ':Telescope git_branches<CR>', { noremap = true, desc = '[G]it [b]ranches' })
 vim.api.nvim_set_keymap('n', '<C-f>', ':Telescope current_buffer_fuzzy_find<CR>', { noremap = true, desc = '[F]ind' })
@@ -198,14 +203,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- these will be buffer-local keybindings
     -- because they only work if you have an active language server
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = event.buf })
-    vim.keymap.set('n', '<leader>gd', require('telescope.builtin').lsp_definitions, { buffer = event.buf, desc = '[g]oto [d]efinitions' })
-    vim.keymap.set('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', { buffer = event.buf, desc = '[g]oto [i]mplementations' })
-    vim.keymap.set('n', '<leader>gr', require('telescope.builtin').lsp_references, { buffer = event.buf, desc = '[g]oto [r]eferences' })
+    vim.keymap.set('n', '<leader>gd', require('telescope.builtin').lsp_definitions,
+      { buffer = event.buf, desc = '[g]oto [d]efinitions' })
+    vim.keymap.set('n', '<leader>gi', '<cmd>lua vim.lsp.buf.implementation()<cr>',
+      { buffer = event.buf, desc = '[g]oto [i]mplementations' })
+    vim.keymap.set('n', '<leader>gr', require('telescope.builtin').lsp_references,
+      { buffer = event.buf, desc = '[g]oto [r]eferences' })
     vim.keymap.set('n', '<leader>sh', vim.lsp.buf.signature_help, { buffer = event.buf, desc = '[s]ignature [h]elp' })
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = event.buf, desc = '[r]e[n]ame' })
-    vim.keymap.set({ 'n', 'x' }, '<C-A-l>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', { buffer = event.buf, desc = 'Format [C-A-l]' })
+    vim.keymap.set({ 'n', 'x' }, '<C-A-l>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>',
+      { buffer = event.buf, desc = 'Format [C-A-l]' })
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = event.buf, desc = '[c]ode [a]actions' })
-    vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, { buffer = event.buf, desc = '[w]orkspace [s]ymbols' })
+    vim.keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols,
+      { buffer = event.buf, desc = '[w]orkspace [s]ymbols' })
   end
 })
 
