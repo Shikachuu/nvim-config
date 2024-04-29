@@ -264,11 +264,13 @@ local function git_push()
     command = 'git',
     args = { 'push' },
     on_exit = function(j, exit_code)
-      if exit_code == 0 then
-        vim.notify('Pushed to remote', 'info', { title = 'Git' })
-      else
-        vim.notify('Failed to push to remote, exit code:' .. exit_code, 'error', { title = 'Git' })
-      end
+      vim.schedule(function()
+        if exit_code == 0 then
+          vim.notify('Pushed to remote', 'info', { title = 'Git' })
+        else
+          vim.notify('Failed to push to remote, exit code:' .. exit_code, 'error', { title = 'Git' })
+        end
+      end)
     end,
   }):start()
 end
