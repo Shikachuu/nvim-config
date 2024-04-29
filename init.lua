@@ -246,11 +246,13 @@ local function git_commit()
         command = 'git',
         args = { 'commit', '-s', '-m', message },
         on_exit = function(j, exit_code)
-          if exit_code == 0 then
-            vim.notify('Committed with message: ' .. message, 'info', { title = 'Git' })
-          else
-            vim.notify('Failed to commit, exit code:' .. exit_code, 'error', { title = 'Git' })
-          end
+          vim.schedule(function()
+            if exit_code == 0 then
+              vim.notify('Committed with message: ' .. message, 'info', { title = 'Git' })
+            else
+              vim.notify('Failed to commit, exit code:' .. exit_code, 'error', { title = 'Git' })
+            end
+          end)
         end,
       }):start()
     end,
