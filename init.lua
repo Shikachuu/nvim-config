@@ -245,7 +245,28 @@ local function git_commit()
       Job:new({
         command = 'git',
         args = { 'commit', '-s', '-m', message },
+        on_exit = function(j, exit_code)
+          if exit_code == 0 then
+            vim.notify('Committed with message: ' .. message, 'info', { title = 'Git' })
+          else
+            vim.notify('Failed to commit, exit code:' .. exit_code, 'error', { title = 'Git' })
+          end
+        end,
       }):start()
+    end,
+  }):start()
+end
+
+local function git_push()
+  Job:new({
+    command = 'git',
+    args = { 'push' },
+    on_exit = function(j, exit_code)
+      if exit_code == 0 then
+        vim.notify('Pushed to remote', 'info', { title = 'Git' })
+      else
+        vim.notify('Failed to push to remote, exit code:' .. exit_code, 'error', { title = 'Git' })
+      end
     end,
   }):start()
 end
@@ -256,7 +277,7 @@ vim.api.nvim_set_keymap('n', '<leader>fs', ':Telescope grep_string<CR>', { norem
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true, desc = '[f]ind [f]iles' })
 vim.api.nvim_set_keymap('n', '<leader>Gcs', ':Telescope git_commits<CR>', { noremap = true, desc = '[G]it [c]ommits' })
 vim.api.nvim_set_keymap('n', '<leader>Gb', ':Telescope git_branches<CR>', { noremap = true, desc = '[G]it [b]ranches' })
-vim.api.nvim_set_keymap('n', '<leader>Gp', ':sp term://git push<CR>', { noremap = true, desc = '[G]it [p]ush' })
+vim.keymap.set('n', '<leader>Gp', git_push, { noremap = true, desc = '[G]it [p]ush' })
 vim.api.nvim_set_keymap('n', '<leader>Gh', ':Gitsigns toggle_current_line_blame<CR>',
   { noremap = true, desc = '[G]it [h]istory' })
 vim.keymap.set('n', '<leader>Gc', git_commit, { noremap = true, silent = true, desc = '[g]it [c]ommit' })
