@@ -38,7 +38,7 @@ require('lazy').setup({
           "typescript",
           "html",
           "json",
-          "yaml"
+          "yaml",
         },
         sync_install = true,
         auto_install = true,
@@ -61,10 +61,10 @@ require('lazy').setup({
   {
     "ThePrimeagen/refactoring.nvim",
     dependencies = {
-        {"nvim-lua/plenary.nvim"},
-        {"nvim-treesitter/nvim-treesitter"}
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" }
     },
-    config = function ()
+    config = function()
       require('refactoring').setup()
     end,
   },
@@ -84,7 +84,7 @@ require('lazy').setup({
   },
   {
     'echasnovski/mini.tabline',
-    config = function ()
+    config = function()
       require('mini.tabline').setup({ show_icons = true, set_vim_settings = true })
     end
   },
@@ -133,7 +133,7 @@ require('lazy').setup({
   },
   {
     'echasnovski/mini.pairs',
-    config = function ()
+    config = function()
       require('mini.pairs').setup()
     end
   },
@@ -189,6 +189,17 @@ require('lazy').setup({
       })
     end,
   },
+  { "github/copilot.vim" },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      { "github/copilot.vim" },
+      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+    },
+    config = function()
+      require("CopilotChat").setup()
+    end,
+  }
 })
 
 -- Set charsets
@@ -223,15 +234,33 @@ vim.opt.scrolloff = 5
 vim.opt.backspace = { "indent", "eol", "start" }
 
 -- Keybinds
+local Job = require('plenary.job')
+
+local function git_commit()
+  local message = vim.fn.input('Type commit message and press Enter: ')
+  Job:new({
+    command = 'git',
+    args = { 'add', '-A' },
+    on_exit = function()
+      Job:new({
+        command = 'git',
+        args = { 'commit', '-s', '-m', message },
+      }):start()
+    end,
+  }):start()
+end
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.api.nvim_set_keymap('n', '<leader>fs', ':Telescope grep_string<CR>', { noremap = true, desc = '[f]ind [s]tring' })
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true, desc = '[f]ind [f]iles' })
-vim.api.nvim_set_keymap('n', '<leader>Gc', ':Telescope git_commits<CR>', { noremap = true, desc = '[G]it [c]ommits' })
+vim.api.nvim_set_keymap('n', '<leader>Gcs', ':Telescope git_commits<CR>', { noremap = true, desc = '[G]it [c]ommits' })
 vim.api.nvim_set_keymap('n', '<leader>Gb', ':Telescope git_branches<CR>', { noremap = true, desc = '[G]it [b]ranches' })
-vim.api.nvim_set_keymap('n', '<C-f>', ':Telescope current_buffer_fuzzy_find<CR>', { noremap = true, desc = '[F]ind' })
+vim.api.nvim_set_keymap('n', '<leader>Gp', ':sp term://git push<CR>', { noremap = true, desc = '[G]it [p]ush' })
 vim.api.nvim_set_keymap('n', '<leader>Gh', ':Gitsigns toggle_current_line_blame<CR>',
   { noremap = true, desc = '[G]it [h]istory' })
+vim.keymap.set('n', '<leader>Gc', git_commit, { noremap = true, silent = true, desc = '[g]it [c]ommit' })
+vim.api.nvim_set_keymap('n', '<C-f>', ':Telescope current_buffer_fuzzy_find<CR>', { noremap = true, desc = '[F]ind' })
 vim.api.nvim_set_keymap('n', '<leader>tt', ':sp term://bash<CR>', { noremap = true, desc = '[tt]erminal' })
 vim.api.nvim_set_keymap('n', '<leader>sk', ":Telescope keymaps<CR>", { noremap = true, desc = '[s]earch [k]eymaps' })
 vim.api.nvim_set_keymap('n', '<leader><TAB>', ":Telescope buffers<CR>", { noremap = true, desc = 'show open buffers' })
@@ -242,6 +271,7 @@ vim.keymap.set('n', '<C-S-Up>', ':m -2<CR>', { noremap = true, desc = 'move line
 vim.keymap.set('n', '<C-S-Down>', ':m +1<CR>', { noremap = true, desc = 'move line down', silent = true })
 vim.keymap.set('n', '<leader>spv', ':vsplit<CR>', { noremap = true, desc = '[s][p]lit [v]ertical', silent = true })
 vim.keymap.set('n', '<leader>sph', ':split<CR>', { noremap = true, desc = '[s][p]lit [h]orizontal', silent = true })
+
 
 -- Set color scheme
 vim.cmd [[colorscheme adwaita]]
