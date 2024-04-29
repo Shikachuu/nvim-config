@@ -143,7 +143,6 @@ require('lazy').setup({
   },
   {
     "williamboman/mason-lspconfig.nvim",
-    lazy = true,
     config = function()
       local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
