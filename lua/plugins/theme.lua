@@ -1,7 +1,8 @@
 return {
-  'Mofiqul/adwaita.nvim',
+  'projekt0n/github-nvim-theme',
   config = function()
-    vim.cmd [[colorscheme adwaita]]
+    require('github-theme').setup({})
+    vim.cmd [[colorscheme github_dark_high_contrast]]
     vim.opt.termguicolors = true
   end
 }
