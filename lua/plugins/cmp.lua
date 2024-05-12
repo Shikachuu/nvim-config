@@ -3,22 +3,28 @@ return {
   {
     "L3MON4D3/LuaSnip",
     version = "v2.*",
+    config = function()
+      require("luasnip").config.set_config({
+        history = true,
+        updateevents = "TextChanged,TextChangedI",
+      })
+      require("luasnip/loaders/from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
+    end,
   },
   {
     "hrsh7th/nvim-cmp",
-    dependencies = { "neovim/nvim-lspconfig" },
+    dependencies = { "neovim/nvim-lspconfig", "saadparwaiz1/cmp_luasnip" },
     config = function()
       local cmp = require('cmp')
-      require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
-
       cmp.setup({
         snippet = {
           expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            require("luasnip").lsp_expand(args.body)
           end
         },
         sources = {
           { name = 'nvim_lsp' },
+          { name = 'luasnip' },
         },
         mapping = cmp.mapping.preset.insert({
           -- Enter key confirms completion item

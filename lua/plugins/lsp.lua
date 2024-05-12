@@ -1,4 +1,5 @@
 return {
+  "b0o/schemastore.nvim",
   {
     "williamboman/mason.nvim",
     config = function() require('mason').setup() end,
@@ -7,15 +8,51 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-
+      local settings = {}
       local default_setup = function(server)
+        if server == "gopls" then
+          settings = {
+            gopls = {
+              analyses = {
+                useany = true,
+                unusedvariable = true,
+              },
+              staticcheck = true,
+            },
+          }
+        end
+
+        if server == "jsonls" then
+          settings = {
+            json = {
+              schemas = require('schemastore').json.schemas(),
+              validate = { enable = true },
+            },
+          }
+        end
+
+        if server == "yamlls" then
+          settings = {
+            yaml = {
+              schemaStore = {
+                -- disable the built-in schemaStore support
+                enable = false,
+                -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+                url = "",
+              },
+              schemas = require('schemastore').yaml.schemas(),
+            },
+          }
+        end
+
         require('lspconfig')[server].setup({
           capabilities = lsp_capabilities,
+          settings = settings,
         })
       end
 
       require("mason-lspconfig").setup({
-        ensure_installed = { "gopls", "lua_ls" },
+        ensure_installed = { "gopls", "lua_ls", "jsonls", "yamlls" },
         handlers = { default_setup }
       })
     end,
