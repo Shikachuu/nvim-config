@@ -29,7 +29,7 @@ vim.keymap.set('x', '<leader>es', ':Refactor extract<CR>', { noremap = true, des
 vim.keymap.set('x', '<leader>ev', ':Refactor extract_var<CR>', { noremap = true, desc = '[e]xtract [v]ariable' })
 vim.keymap.set({ 'n', 'x' }, '<leader>iv', ':Refactor inline_var<CR>', { noremap = true, desc = '[i]line [v]ariable' })
 
-vim.keymap.set('n', '<C-w>', ':bd<CR>', { noremap = true, desc = 'close current tab' })
+vim.keymap.set('n', '<C-Q>', ':bd<CR>', { noremap = true, desc = '[q]uit current tab', silent = true })
 
 vim.keymap.set('x', '(', Create_wrapper('(', ')'), { noremap = true, desc = 'wrap in ()' })
 vim.keymap.set('x', '{', Create_wrapper('{', '}'), { noremap = true, desc = 'wrap in {}' })
