@@ -1,3 +1,4 @@
+; Copyright: https://github.com/ray-x/go.nvim
 ;; extends
 
 ; inject sql in single line strings

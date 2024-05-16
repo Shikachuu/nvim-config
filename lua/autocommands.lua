@@ -19,4 +19,34 @@ vim.api.nvim_create_autocmd('LspAttach', {
       { buffer = event.buf, desc = '[w]orkspace [s]ymbols' })
   end
 })
+
+-- Save current buffer on focus lost
+vim.api.nvim_create_autocmd({ "BufLeave", "BufUnload", "FocusLost", "WinLeave" }, {
+  callback = function(event)
+    local print_callback = function()
+      local buffer_name = vim.api.nvim_buf_get_name(0)
+      vim.fn.timer_start(1300, function() print("Saved " .. buffer_name .. " at " .. vim.fn.strftime("%H:%M:%S")) end)
+    end
+
+    local writable_buffer = vim.bo[event.buf].modifiable and vim.bo[event.buf].buftype == ""
+    local file_exists = vim.fn.expand("%") ~= ""
+    local saved_recently = (vim.b.timestamp or 0) == vim.fn.localtime()
+    local being_formatted = (vim.b.saving_format or false)
+
+    if writable_buffer and file_exists and not saved_recently and not being_formatted then
+      vim.cmd("silent update")
+      print_callback()
+    end
+  end
+})
+
+-- Clear search highlights if non left after moving the cursor
+vim.api.nvim_create_autocmd('CursorMoved', {
+  group = vim.api.nvim_create_augroup('auto-hlsearch', { clear = true }),
+  callback = function()
+    if vim.v.hlsearch == 1 and vim.fn.searchcount().exact_match == 0 then
+      vim.schedule(function() vim.cmd.nohlsearch() end)
+    end
+  end
+})
 -- vim: ts=2 sts=2 sw=2 et
