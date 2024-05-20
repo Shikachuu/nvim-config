@@ -1,9 +1,12 @@
 return {
-  'projekt0n/github-nvim-theme',
+  "Mofiqul/adwaita.nvim",
+  lazy = false,
+  priority = 1000,
   config = function()
-    require('github-theme').setup({})
-    vim.cmd [[colorscheme github_dark_high_contrast]]
-    vim.opt.termguicolors = true
-  end
+    vim.g.adwaita_darker = true
+    vim.g.adwaita_disable_cursorline = true
+    vim.g.adwaita_transparent = true
+    vim.cmd('colorscheme adwaita')
+  end,
 }
 -- vim: ts=2 sts=2 sw=2 et
