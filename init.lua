@@ -28,4 +28,8 @@ require('keybinds')
 -- Add autocommands
 require('autocommands')
 
+if vim.loop.os_uname().sysname == "Darwin" then
+  vim.cmd([[set rtp+=$HOMEBREW_PREFIX/opt/fzf]])
+end
+
 -- vim: ts=2 sts=2 sw=2 et
