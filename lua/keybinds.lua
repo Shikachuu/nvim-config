@@ -1,7 +1,7 @@
 require('functions.git')
-require('functions.wrap')
 
 vim.api.nvim_set_keymap('n', '<leader>fs', ':Telescope grep_string<CR>', { noremap = true, desc = '[f]ind [s]tring' })
+vim.api.nvim_set_keymap('n', '<leader>fa', ':Telescope live_grep<CR>', { noremap = true, desc = '[f]ind [s]tring' })
 vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true, desc = '[f]ind [f]iles' })
 
 vim.api.nvim_set_keymap('n', '<leader>Gcs', ':Telescope git_commits<CR>', { noremap = true, desc = '[G]it [c]ommits' })
@@ -30,9 +30,3 @@ vim.keymap.set('x', '<leader>ev', ':Refactor extract_var<CR>', { noremap = true,
 vim.keymap.set({ 'n', 'x' }, '<leader>iv', ':Refactor inline_var<CR>', { noremap = true, desc = '[i]line [v]ariable' })
 
 vim.keymap.set('n', '<C-Q>', ':bd<CR>', { noremap = true, desc = '[q]uit current tab', silent = true })
-
-vim.keymap.set('x', '(', Create_wrapper('(', ')'), { noremap = true, desc = 'wrap in ()' })
-vim.keymap.set('x', '{', Create_wrapper('{', '}'), { noremap = true, desc = 'wrap in {}' })
-vim.keymap.set('x', '[', Create_wrapper('[', ']'), { noremap = true, desc = 'wrap in []' })
-vim.keymap.set('x', "'", Create_wrapper("'", "'"), { noremap = true, desc = "wrap in ''" })
-vim.keymap.set('x', '"', Create_wrapper('"', '"'), { noremap = true, desc = 'wrap in ""' })
