@@ -8,6 +8,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+      lsp_capabilities.textDocument.foldingRandge = { dynamicRegistration = true }
       local settings = {}
       local default_setup = function(server)
         if server == "gopls" then
@@ -48,6 +49,12 @@ return {
         require('lspconfig')[server].setup({
           capabilities = lsp_capabilities,
           settings = settings,
+          handlers = {
+            ["textDocument/foldingRange"] = function(_, _, result)
+              if not result then return end
+              vim.lsp.util.set_fold(result)
+            end
+          }
         })
       end
 

@@ -49,4 +49,15 @@ vim.api.nvim_create_autocmd('CursorMoved', {
     end
   end
 })
+
+-- Use treesitter based folding when no LSP server is available
+vim.api.nvim_create_autocmd('BufEnter', {
+  callback = function()
+    if next(vim.lsp.get_clients()) == nil then
+      vim.opt.foldmethod = 'expr'
+      vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+    end
+  end
+})
+
 -- vim: ts=2 sts=2 sw=2 et

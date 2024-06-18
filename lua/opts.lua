@@ -29,4 +29,6 @@ vim.opt.expandtab = true
 vim.opt.wrap = false
 vim.opt.scrolloff = 5
 vim.opt.backspace = { "indent", "eol", "start" }
+
+vim.opt.foldlevelstart = 99
 -- vim: ts=2 sts=2 sw=2 et
