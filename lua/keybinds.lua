@@ -31,5 +31,5 @@ vim.keymap.set({ 'n', 'x' }, '<leader>iv', ':Refactor inline_var<CR>', { noremap
 
 vim.keymap.set('n', '<C-Q>', ':bd<CR>', { noremap = true, desc = '[q]uit current tab', silent = true })
 
-vim.keymap.set('n', '<leader>.', 'za', { noremap = true, desc = 'toggle fold under cursor', silent = true })
-vim.keymap.set('n', '<leader>!', 'zA', { noremap = true, desc = 'toggle all fold in file', silent = true })
+vim.keymap.set('n', '<leader>!', 'za', { noremap = true, desc = 'toggle fold under cursor', silent = true })
+vim.keymap.set('n', '<leader>.', 'zA', { noremap = true, desc = 'toggle all fold in file', silent = true })
