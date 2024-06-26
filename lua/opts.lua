@@ -4,6 +4,7 @@ vim.opt.fileencoding = "utf-8"
 
 -- Set the window properties like row nums and title bar
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.showmode = false
 
 -- Use global clipboard shared with X or Wayland
