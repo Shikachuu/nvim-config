@@ -3,10 +3,11 @@ return {
   tag = 'v0.9.2',
   build = ':TSUpdate',
   config = function()
-    require('nvim-treesitter.configs').setup {
+    require('nvim-treesitter.configs').setup({
       build = ':TSUpdate',
       ensure_installed = {
         "markdown",
+        "rust",
         "vim",
         "vimdoc",
         "bash",
@@ -29,6 +30,8 @@ return {
         -- `false` will disable the whole extension
         enable = true,
       },
+      ignore_install = {},
+      modules = {},
       incremental_selection = {
         enable = true,
         keymaps = {
@@ -38,7 +41,7 @@ return {
           node_decremental = "<S-TAB>",
         }
       }
-    }
+    })
   end,
 }
 -- vim: ts=2 sts=2 sw=2 et
