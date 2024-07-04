@@ -59,7 +59,15 @@ return {
       end
 
       require("mason-lspconfig").setup({
-        ensure_installed = { "gopls", "lua_ls", "jsonls", "yamlls", "sqls", "tsserver", "rust_analyzer" },
+        ensure_installed = {
+          "gopls",
+          "lua_ls",
+          "jsonls",
+          "yamlls",
+          "sqls",
+          "tsserver",
+          "rust_analyzer"
+        },
         handlers = { default_setup }
       })
     end,

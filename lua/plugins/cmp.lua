@@ -17,6 +17,34 @@ return {
     config = function()
       local cmp = require('cmp')
       cmp.setup({
+        window = {
+          completion = {
+            border = {
+              { "W", "WarningMsg" },
+              { "─", "Comment" },
+              { "╮", "Comment" },
+              { "│", "Comment" },
+              { "╯", "Comment" },
+              { "─", "Comment" },
+              { "╰", "Comment" },
+              { "│", "Comment" },
+            },
+            scrollbar = false,
+          },
+          documentation = {
+            border = {
+              { "", "DiagnosticHint" },
+              { "─", "Comment" },
+              { "╮", "Comment" },
+              { "│", "Comment" },
+              { "╯", "Comment" },
+              { "─", "Comment" },
+              { "╰", "Comment" },
+              { "│", "Comment" },
+            },
+            scrollbar = false,
+          },
+        },
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
